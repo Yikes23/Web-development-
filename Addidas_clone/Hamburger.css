@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+
+.menu-btn{
+    display: flex;
+    margin-top: 15px;
+    margin-left: 30px;
+    align-items: center;
+    border-radius: 3px;
+    height: 80px;
+    justify-content: center;
+    cursor: pointer;
+}
+.menu-hamburger{
+    width: 40px;
+    height: 0.3vh;
+    background-color: rgb(0, 0, 0);
+    border-radius: 2px;
+    transition-duration:0.1s;
+}
+.menu-hamburger::before, .menu-hamburger::after{
+    content: " ";
+    position: absolute;
+    width: 40px;
+    height: 0.3vh;
+    background-color: rgb(0, 0, 0);
+    border-radius: 2px;
+    transition-duration: 0.1s;
+}
+.menu-hamburger::before{
+    transform: translateY(-9px) rotate(0deg);
+}
+.menu-hamburger::after{
+    transform: translateY(9px) rotate(0deg);
+}
+
+@keyframes rotate{
+
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+.menu-btn.on .menu-hamburger{
+
+    animation-name: rotate;
+    animation-duration: .5s;
+    transition-duration: .2s;
+    background: transparent;
+}
+.menu-btn.on .menu-hamburger::after{
+    transform: rotate(45deg);
+}
+.menu-btn.on .menu-hamburger::before{
+    transform: rotate(-45deg);
+}
+
+#list.off{
+    left: -100vw;
+    transition: left .5s ease-in-out;
+}
+
+
+#list{
+    left: 0vw;
+    z-index: 2;
+    top:16.5vh;
+    width: 100%;
+    border: 1px solid hidden;
+    position: fixed;
+    text-align: left;
+    background-color: rgb(255, 255, 255);
+    border-top: 1px groove rgb(213, 213, 213);
+    transition: left .5s ease-in-out;
+}
+
+.menu-list #list ul{
+    list-style-type: none;
+    margin-right: 20vh;
+    margin-left: 20vh;
+    padding: 2vh;
+    padding-bottom: 5vh;
+}
+.menu-list #list ul:nth-child(1){
+    border-bottom: 1px groove rgb(136, 136, 136) ;
+}
+#list ul li{
+    padding: 1.75vh;
+    font-family: 'Lato', sans-serif;
+    font-size: larger;
+    cursor: pointer;
+}
+
+#list ul li:hover{
+    transition: .2s ease-in-out ;
+    background-color: rgb(217, 217, 217);
+}
